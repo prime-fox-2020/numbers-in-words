@@ -5,7 +5,10 @@ function numberToWords(number) {
     return 'number melebihi 999'
   } else{
     // ratusan
-    if ((number / 100) >= 1){
+    if ((number / 100 >= 1 && (number < 200 && number >= 100))) {
+      result += 'seratus '
+      number %= 100
+    } else if ((number / 100) >= 1){
       result += `${numberToWords(number / 100)} ratus `
       number %= 100
     }
@@ -61,7 +64,7 @@ function numberToWords(number) {
 }
 
 // Driver code
-console.log(numberToWords(705));
+console.log(numberToWords(105));
 // console.log(numberToWords(1000000));
 // console.log(numberToWords(2011845));
 
