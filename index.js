@@ -31,7 +31,17 @@ function numberToWords(number) {
 
   if (number == 0) {
     return ''
-  }else if (number >= 1000000) {
+  } else if (number >= 1000000000000) {
+    let temp = Math.trunc(number / 1000000000000)
+    let temp1 = temp * 1000000000000
+    number -= temp1
+    return `${numberToWords(temp)}triliun ${numberToWords(number)}`
+  } else if (number >= 1000000000) {
+    let temp = Math.trunc(number / 1000000000)
+    let temp1 = temp * 1000000000
+    number -= temp1
+    return `${numberToWords(temp)}milyar ${numberToWords(number)}`
+  } else if (number >= 1000000) {
     let temp = Math.trunc(number / 1000000)
     let temp1 = temp * 1000000
     number -= temp1
@@ -89,6 +99,8 @@ console.log(numberToWords(72));
 console.log(numberToWords(423));
 console.log(numberToWords(1000000));
 console.log(numberToWords(2011845));
+console.log(numberToWords(2011845743));
+console.log(numberToWords(42507188198145));
 
 //abaikan code dibawah ini
 module.exports = numberToWords;
