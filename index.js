@@ -23,18 +23,7 @@ function numberToWords(number) {
   if (number < 2000){
     return 'seribu ' + numberToWords(Math.floor(number % 1000));
   }
-  if (number < 1000000){
-    return numberToWords(Math.floor(number / 1000)) + ' ribu ' + numberToWords(Math.floor(number % 1000))
-  }
-  if (number < 1000000000){
-    return numberToWords(Math.floor(number / 1000000)) + ' juta ' + numberToWords(Math.floor(number % 1000000))
-  }
-  if (number < 1000000000000){
-    return numberToWords(Math.floor(number / 1000000000)) + ' miliar ' + numberToWords(Math.floor(number % 1000000000))
-  }
-  if (number < 1000000000000000){
-    return numberToWords(Math.floor(number / 1000000000000)) + ' triliun ' + numberToWords(Math.floor(number % 1000000000000))
-  }
+  
 }
 
 // Driver code
