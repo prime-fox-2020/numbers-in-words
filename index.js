@@ -4,7 +4,7 @@ function numberToWords(number) {
     [1, ""],
     [10, "puluh"], 
     [100, "ratus"], 
-    [1000, "ribu"],
+    [1000, "ribu "],
     [1000000, "juta"],
     [1000000000, "miliar"],
     [1000000000000, "triliun"]
