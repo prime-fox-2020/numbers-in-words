@@ -40,7 +40,7 @@ function numberToWords(number) {
     else text = sebutan[numStr[0]] + ' ratus ';
   }
 
-  if ((numStr[1] == '0' && numStr[2] == '0') || numStr.length % 3 > 0) {
+  if ((numStr[1] == '0' && numStr[2] == '0') || (numStr.length % 3 == 2 && (text == 'sebelas ' || text =='sepuluh ' || text == sebutan[numStr[1]] + ' belas ')) || numStr.length % 3 == 1){
     if (numStr.length >= 13) text += 'triliun ';
     else if (numStr.length >= 10) text += 'milyar ';
     else if (numStr.length >= 7) text += 'juta ';
