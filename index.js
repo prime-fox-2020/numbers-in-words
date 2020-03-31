@@ -9,7 +9,7 @@ function numberToWords(number) {
   else if (num < 100) {
     return `${kata[num[0]]} puluh ${numberToWords(num % 10)}`}
   if (num > 99 && num < 200) {
-    return `seratu s${numberToWords(num % 100)}`}
+    return `seratus ${numberToWords(num % 100)}`}
   if (num >= 200 && num < 1000) {
     return `${kata[num[0]]} ratus ${numberToWords(num % 100)}`}
   if (num >= 1000 && num < 1999) {
