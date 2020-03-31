@@ -56,7 +56,7 @@ function numberToWords(number) {
           break
         }
       }
-      if((cek==true&&panjang[i+1]==0)||(panjang.length%3==2&&panjang[i+1]==0&&i<2)&&i!=panjang.length-1){
+      if((cek==true&&panjang[i+1]==0&&panjang.length%3!=1)||(panjang.length%3==2&&panjang[i+1]==0&&i<2)&&i!=panjang.length-1){
         res+=satuan[panjang.length-1-i-1]
         res+=' '
       }
@@ -81,18 +81,17 @@ console.log(numberToWords(2011845));
 
 //Test Tambahan
 console.log(numberToWords(999999999999999))
-// console.log(numberToWords(217));
-// console.log(numberToWords(14));
-// console.log(numberToWords(20000));
-// console.log(numberToWords(11000))
-// console.log(numberToWords(31300))
-// console.log(numberToWords(2340))
-// console.log(numberToWords(320000))
-// console.log(numberToWords(302000))
-//Case tambahan
-// console.log(numberToWords(12001))
-// console.log(numberToWords(20011))
-// console.log(numberToWords(1000212))
+console.log(numberToWords(217));
+console.log(numberToWords(14));
+console.log(numberToWords(20000));
+console.log(numberToWords(11000))
+console.log(numberToWords(31300))
+console.log(numberToWords(2340))
+console.log(numberToWords(320000))
+console.log(numberToWords(302000))
+console.log(numberToWords(12001))
+console.log(numberToWords(20011))
+console.log(numberToWords(1000212))
 
 //abaikan code dibawah ini
 module.exports = numberToWords;
