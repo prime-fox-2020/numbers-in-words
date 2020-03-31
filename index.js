@@ -1,6 +1,5 @@
 function numberToWords(number) {
   // Your code here
-  console.log({number});
   const big = [
     [1, ""],
     [10, "puluh"], 
@@ -20,31 +19,17 @@ function numberToWords(number) {
       let sisa = Math.floor(number/big[i][0]);
       if(base.indexOf(sisa) !== -1) str += baseSpell[base.indexOf(sisa)] + " " + big[i][1];
       let temp = number % big[i][0];
-      if((number%big[i][0]) === 0) return str;
-      else return str + numberToWords(temp);
+      return str + numberToWords(temp);
     }
-  }
-  //Looping for check belasan di atas 100
-  for(let i = big.length-1; i > 2; i--){
-    if((number/big[i][0]) > 10) break;
-    if((number/big[i][0]) > 10 && (number/big[i][0]) < 20){
-      let sisa = Math.floor(number/big[i][0]);
-      if(base.indexOf(sisa) !== -1) str += baseSpell[base.indexOf(sisa)] + " " + big[i][1];
-      let temp = number % big[i][0];
-      if((number%big[i][0]) === 0) return str;
-      else return str + numberToWords(temp);
-    }
+    if(number > 10 && number < 20) return baseSpell[base.indexOf(number)]
   }
 
   for(let i = big.length-1; i >= 0; i--){
-    console.log({i});
     if(number >= big[i][0]){
       let kepala = Math.floor(number/big[i][0]);
       let tail = big[i][1];
-      console.log(big[i][0]);
       let temp = number % big[i][0];
       if((kepala*big[i][0])/10 === 1 || (kepala*big[i][0])/100 === 1 || (kepala*big[i][0])/1000 === 1) {
-        console.log("seratus")
         kepala *= big[i][0];
         tail = "";
       }else if(kepala > 99){
@@ -56,7 +41,7 @@ function numberToWords(number) {
         temp = number % (big[i][0]*10);
         tail = "puluh";
       }
-      str += " " + baseSpell[base.indexOf(kepala)] + " " + tail;
+      str += baseSpell[base.indexOf(kepala)] + " " + tail + " ";
       return str + numberToWords(temp);
     }
   }
@@ -64,11 +49,7 @@ function numberToWords(number) {
 }
 
 // Driver code
-console.log(numberToWords(12000));
 console.log(numberToWords(705));
-console.log(numberToWords(112));
-console.log(numberToWords(13));
-console.log(numberToWords(135));
 console.log(numberToWords(1000000));
 console.log(numberToWords(2011845));
 
