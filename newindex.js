@@ -25,14 +25,12 @@ function numberToWords(input){
     }
 
     if(temp.length % 3 ===0 && temp.length>3){
+        // if()
         var tigaDepan = Number(temp.slice(0,3))
         var inputNew = Number(temp.slice(3,temp.length))
-        var indexTiga = Math.floor(temp.length/3)
+        var indexTiga = Math.floor(temp.length/3)-1
         return numberToWords(tigaDepan) +' '+ sebutan[indexTiga+2]+' ' + numberToWords(inputNew)
     }
-
-
-
 
     if(input <=10){
         return bacaan[input]
@@ -62,10 +60,15 @@ function numberToWords(input){
   console.log(numberToWords(1000000));
   console.log(numberToWords(2011845));
 
+  // test another number up to 999milion
   console.log(numberToWords(38709))
   console.log(numberToWords(82102713))
   console.log(numberToWords(999999999));
   
+  
+
+
+
   
   //abaikan code dibawah ini
   module.exports = numberToWords;
