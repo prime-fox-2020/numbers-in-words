@@ -1,6 +1,6 @@
 function numberToWords(number) {
   // Your code here
-  let satuan = ['', 'se', 'dua ', 'tiga ', 'empat ', 'lima ', 'enam ', 'tujuh ', 'delapan ', 'sembilan ', 'sepuluh ', 'sebelas ']
+  let satuan = ['', 'se', 'dua', 'tiga', 'empat', 'lima', 'enam', 'tujuh', 'delapan', 'sembilan', 'sepuluh', 'sebelas']
 
   if(number === 1){
     return 'satu '
