@@ -14,6 +14,13 @@ function numberToWords(number) {
   var div = [
     [10, 'sepuluh', 'puluh'],
     [100, 'seratus', 'ratus']
+  ];
+
+  var triple = [
+    [1000, 'ribu'],
+    [1000000, 'juta'],
+    [1000000000, 'miliar'],
+    [1000000000000, 'triliun']
   ]
 
   var toWord = '', min = 0;
@@ -22,19 +29,39 @@ function numberToWords(number) {
     return toWord;
   }
 
+  var operate = number;
+  var timer = 1;
   for (var i = 0; i < div.length; i++) {
+    var last = '';
+    for (var k = 0; k < triple.length; k++) {
+      if (number >= triple[k][0]) {
+        operate = Math.floor(number / triple[k][0]);
+        last = triple[k][1];
+        timer = triple[k][0];
+      }
+    }
     for (var j = 0; j < words.length; j++) {
-      if (number >= div[i][0]) {
-        if (number / div[i][0] >= words[j][0]) {
+      if (operate >= div[i][0]) {
+        if (operate / div[i][0] >= words[j][0]) {
           toWord = `${words[j][1]} ${div[i][2]}`;
-          min = Math.floor(number / div[i][0]) * div[i][0];
-        } else if (number / div[i][0] == 1) {
-          toWord = div[i][1];
+          min = Math.floor(operate / div[i][0]) * div[i][0] * timer;
+        } else if (operate / div[i][0] < 2) {
+          if (operate == 11) {
+            toWord = `sebelas ${last}`;
+          } else if (operate % 10 == words[j][0]) {
+            toWord = `${words[j][1]} belas ${last}`;
+          } else if (operate / 10 == 1 || (operate / 100 < 2 && i == 1)) {
+            toWord = `${div[i][1]} ${last}`;
+          }
+          min = operate * timer;
         }
       } else {
-        if (number == words[j][0]) {
-          toWord = words[j][1];
-          min = words[j][0];
+        if (operate == words[j][0]) {
+          toWord = `${words[j][1]} ${last}`;
+          if (operate*timer == 1000) {
+            toWord = 'seribu'
+          }
+          min = words[j][0] * timer;
         }
       }
     }
@@ -51,5 +78,4 @@ function numberToWords(number) {
 //abaikan code dibawah ini
 module.exports = numberToWords;
 
-
-console.log(numberToWords(999));
+console.log(numberToWords(999999999999999))
