@@ -23,7 +23,18 @@ function numberToWords(number) {
   if (number < 2000){
     return 'seribu ' + numberToWords(Math.floor(number % 1000));
   }
-  
+  if (number < 1000000){
+    return numberToWords(Math.floor(number / 1000)) + ' ribu ' + numberToWords(Math.floor(number % 1000))
+  }
+  if (number < 1000000000){
+    return numberToWords(Math.floor(number / 1000000)) + ' juta ' + numberToWords(Math.floor(number % 1000000))
+  }
+  if (number < 1000000000000){
+    return numberToWords(Math.floor(number / 1000000000)) + ' miliar ' + numberToWords(Math.floor(number % 1000000000))
+  }
+  if (number < 1000000000000000){
+    return numberToWords(Math.floor(number / 1000000000000)) + ' triliun ' + numberToWords(Math.floor(number % 1000000000000))
+  }
 }
 
 // Driver code
@@ -32,13 +43,6 @@ console.log(numberToWords(705));
 console.log(numberToWords(1000000));
 console.log(numberToWords(2011845));
 
-console.log(numberToWords(1));
-console.log(numberToWords(89));
-console.log(numberToWords(289));
-console.log(numberToWords(1189));
-console.log(numberToWords(1999));
-console.log(numberToWords(4371641));
-console.log(numberToWords(1111899999999));
 
 //abaikan code dibawah ini
 module.exports = numberToWords;
