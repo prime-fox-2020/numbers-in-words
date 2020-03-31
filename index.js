@@ -76,7 +76,7 @@ function numberToWords(number) {
 
 // Driver code
 console.log(numberToWords(705));
-console.log(numberToWords(1021300));
+console.log(numberToWords(1000000));
 console.log(numberToWords(2011845));
 
 //Test Tambahan
