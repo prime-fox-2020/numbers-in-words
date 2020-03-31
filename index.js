@@ -71,7 +71,7 @@ function numberToWords(num){
               }
           }
       }
-      if(str[1] == 0){
+      if(str[1] == 0 && str[2] == 0){
           if(len == 5 || len == 6){
               result += satuan[4] + ' '
           }
