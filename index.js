@@ -2,7 +2,7 @@ function numberToWords(number) {
   // Your code here
   // let result = ''
   // if (number > 999999999999999) {
-  //   return 'number melebihi 999 triliun'
+  //   return 'number melebihi 999 triliun!'
   // } else{
   //   // triliun
   //   if ((number / 1000000000000) >= 1){
@@ -112,41 +112,46 @@ function numberToWords(number) {
     1 : 'satu'
   }
 
-  if (number == 0) {
-    return ' '
-  }
-  if (number < 12) {
-    return  satuan[number]
-  }
-  if (number > 11 && number < 20) {
-    return satuan[number % 10] + ' belas'
-  }
-  if (number > 20 && number < 100) {
-    return satuan[Math.floor(number / 10)] + ' puluh ' + numberToWords(number % 10)
-  }
-  if (number >= 100 && number < 1000) {
-    if (Math.floor(number / 100) == 1) {
-      return satuan[number - (number % 100)] + ' ' + numberToWords(number % 100)
-    } else {
-      return satuan[Math.floor(number / 100)] + ' ratus ' + numberToWords(number % 100)
+  if (number > 999999999999999) {
+    return 'number melebihi 999 triliun!'
+  } else {
+      if (number == 0) {
+      return ' '
+    }
+    if (number < 12) {
+      return  satuan[number]
+    }
+    if (number > 11 && number < 20) {
+      return satuan[number % 10] + ' belas'
+    }
+    if (number > 20 && number < 100) {
+      return satuan[Math.floor(number / 10)] + ' puluh ' + numberToWords(number % 10)
+    }
+    if (number >= 100 && number < 1000) {
+      if (Math.floor(number / 100) == 1) {
+        return satuan[number - (number % 100)] + ' ' + numberToWords(number % 100)
+      } else {
+        return satuan[Math.floor(number / 100)] + ' ratus ' + numberToWords(number % 100)
+      }
+    }
+    if (number >= 1000 && number < 1000000) {
+      if (Math.floor(number / 1000) == 1) {
+        return satuan[number - (number % 1000)] + ' ' + numberToWords(number % 1000)
+      } else {
+        return numberToWords(Math.floor(number / 1000)) + ' ribu ' + numberToWords(number % 1000)
+      }
+    }
+    if (number >= 1000000 && number < 1000000000) {
+      return numberToWords(Math.floor(number / 1000000)) + ' juta ' + numberToWords(number % 1000000)
+    }
+    if (number >= 1000000000 && number < 1000000000000) {
+      return numberToWords(Math.floor(number / 1000000000)) + ' miliar ' + numberToWords(number % 1000000000)
+    }
+    if (number >= 1000000000000 && number < 1000000000000000) {
+      return numberToWords(Math.floor(number / 1000000000000)) + ' triliun ' + numberToWords(number % 1000000000000)
     }
   }
-  if (number >= 1000 && number < 1000000) {
-    if (Math.floor(number / 1000) == 1) {
-      return satuan[number - (number % 1000)] + ' ' + numberToWords(number % 1000)
-    } else {
-      return numberToWords(Math.floor(number / 1000)) + ' ribu ' + numberToWords(number % 1000)
-    }
-  }
-  if (number >= 1000000 && number < 1000000000) {
-    return numberToWords(Math.floor(number / 1000000)) + ' juta ' + numberToWords(number % 1000000)
-  }
-  if (number >= 1000000000 && number < 1000000000000) {
-    return numberToWords(Math.floor(number / 1000000000)) + ' miliar ' + numberToWords(number % 1000000000)
-  }
-  if (number >= 1000000000000 && number < 1000000000000000) {
-    return numberToWords(Math.floor(number / 1000000000000)) + ' triliun ' + numberToWords(number % 1000000000000)
-  }
+  
 }
 
 // Driver code
